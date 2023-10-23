@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Global from '../Global';
 import axios from 'axios';
+import DetalleDoctor from './DetalleDoctor';
 
 export default class Doctores extends Component {
 
@@ -45,11 +46,9 @@ export default class Doctores extends Component {
         <table border="1" className="table">
             <thead>
                 <tr>
-                    <th>ID Doctor</th>
                     <th>Apellido</th>
                     <th>Especialidad</th>
-                    <th>Salario</th>
-                    <th>ID Hospital</th>
+                    <th>Detalle</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,17 +57,16 @@ export default class Doctores extends Component {
                     (
                         this.state.doctores.map((doctor, index) => {
                             return(<tr key={index}>
-                                <td>{doctor.idDoctor}</td>
                                 <td>{doctor.apellido}</td>
                                 <td>{doctor.especialidad}</td>
-                                <td>{doctor.salario}</td>
-                                <td>{doctor.idHospital}</td>
+                                <td><button>Detalle</button></td>
                             </tr>)
                         })
                     )
                 }
             </tbody>
         </table>
+        <DetalleDoctor />
       </div>
     )
   }

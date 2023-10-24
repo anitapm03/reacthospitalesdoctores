@@ -36,7 +36,8 @@ export default class Menu extends Component {
 
         <NavLink className="navbar-brand" to="/">Home</NavLink>
         <NavLink className="navbar-brand" to="/createhospital">Crear Hospital</NavLink>
-
+        <NavLink className="navbar-brand" to="/listahospitales">Hospitales</NavLink>
+        
         <ul className="navbar-nav">
                 
             <li className="nav-item dropdown">

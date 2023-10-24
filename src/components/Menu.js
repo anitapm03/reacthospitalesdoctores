@@ -35,6 +35,7 @@ export default class Menu extends Component {
         <div className="container-fluid">
 
         <NavLink className="navbar-brand" to="/">Home</NavLink>
+        <NavLink className="navbar-brand" to="/createhospital">Crear Hospital</NavLink>
 
         <ul className="navbar-nav">
                 

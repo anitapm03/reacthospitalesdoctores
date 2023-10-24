@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Global from '../Global';
 import axios from 'axios';
 import DetalleDoctor from './DetalleDoctor';
+import { NavLink } from 'react-router-dom';
 
 export default class Doctores extends Component {
 
@@ -57,6 +58,7 @@ export default class Doctores extends Component {
                     <th>Apellido</th>
                     <th>Especialidad</th>
                     <th>Detalle</th>
+                    <th>Detalle por enlace</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,6 +73,10 @@ export default class Doctores extends Component {
                                 <td><button className='btn btn-info' 
                                 onClick={() => this.mostrarDetalleDoctor(doctor.idDoctor)}>Detalle
                                 </button></td>
+
+                                <td>
+                                <NavLink to={"/detallesdoctor/" + doctor.idDoctor} >Detalle por enlace</NavLink>
+                                </td>
 
                             </tr>)
                         })

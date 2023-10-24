@@ -9,7 +9,8 @@ export default class Doctores extends Component {
 
     state = {
         doctores: [],
-        status: false
+        status: false,
+        idDoctor: -1
     }
 
     getDoctores = () => {
@@ -29,13 +30,20 @@ export default class Doctores extends Component {
     }
 
     componentDidUpdate = (oldProps) => {
-        console.log("Actual PROPS... " + this.props.idhospital);
-        console.log("Old PROPS... " + oldProps.idhospital);
+        //console.log("Actual PROPS... " + this.props.idhospital);
+       //console.log("Old PROPS... " + oldProps.idhospital);
 
         if(oldProps.idhospital != this.props.idhospital){
             this.getDoctores();
             
         }
+    }
+
+    mostrarDetalleDoctor = (iddoctor) => {
+        console.log(iddoctor);
+        this.setState({
+            idDoctor: iddoctor
+        })
     }
 
   render() {
@@ -59,14 +67,22 @@ export default class Doctores extends Component {
                             return(<tr key={index}>
                                 <td>{doctor.apellido}</td>
                                 <td>{doctor.especialidad}</td>
-                                <td><button>Detalle</button></td>
+
+                                <td><button className='btn btn-info' 
+                                onClick={() => this.mostrarDetalleDoctor(doctor.idDoctor)}>Detalle
+                                </button></td>
+
                             </tr>)
                         })
                     )
                 }
             </tbody>
         </table>
-        <DetalleDoctor />
+        {
+            this.state.idDoctor != -1 &&
+            (<DetalleDoctor iddoctor={this.state.idDoctor}/>)
+        }
+        
       </div>
     )
   }
